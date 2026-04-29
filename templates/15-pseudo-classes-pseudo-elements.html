@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 15 - Pseudo-Classes & Pseudo-Elements</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .demo-box {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+        
+        /* :hover */
+        .hover-demo {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .hover-demo:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        
+        /* :active */
+        .active-demo {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .active-demo:active {
+            background-color: #c0392b;
+            transform: scale(0.95);
+        }
+        
+        /* :focus */
+        .focus-demo {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .focus-demo:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+        }
+        
+        /* :visited */
+        .visited-demo:visited {
+            color: #8e44ad;
+        }
+        
+        /* :link */
+        .link-demo:link {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        /* :checked */
+        .checkbox-demo {
+            width: 20px;
+            height: 20px;
+            accent-color: #3498db;
+        }
+        
+        .checkbox-demo:checked {
+            accent-color: #2ecc71;
+        }
+        
+        /* :disabled */
+        .disabled-demo {
+            padding: 12px 30px;
+            background-color: #95a5a6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: not-allowed;
+        }
+        
+        .disabled-demo:disabled {
+            opacity: 0.5;
+        }
+        
+        /* :enabled */
+        .enabled-demo {
+            padding: 12px 30px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        .enabled-demo:enabled {
+            cursor: pointer;
+        }
+        
+        /* :required */
+        .required-demo {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .required-demo:required {
+            border-color: #e74c3c;
+        }
+        
+        /* :optional */
+        .optional-demo {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .optional-demo:optional {
+            border-color: #3498db;
+        }
+        
+        /* :valid */
+        .valid-demo {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .valid-demo:valid {
+            border-color: #2ecc71;
+            background-color: #f0fff4;
+        }
+        
+        /* :invalid */
+        .invalid-demo {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .invalid-demo:invalid {
+            border-color: #e74c3c;
+            background-color: #fff5f5;
+        }
+        
+        /* :first-child */
+        .list-demo li:first-child {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        /* :last-child */
+        .list-demo li:last-child {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        
+        /* :nth-child */
+        .nth-child-demo li:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+        
+        .nth-child-demo li:nth-child(even) {
+            background-color: #e8f4f8;
+        }
+        
+        .nth-child-demo li:nth-child(3) {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        /* :nth-of-type */
+        .nth-of-type-demo p:nth-of-type(2) {
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        /* :first-of-type */
+        .first-of-type-demo p:first-of-type {
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+        
+        /* :last-of-type */
+        .last-of-type-demo p:last-of-type {
+            color: #2ecc71;
+            font-style: italic;
+        }
+        
+        /* :not() */
+        .not-demo li:not(:first-child) {
+            color: #666;
+        }
+        
+        /* ::before */
+        .before-demo::before {
+            content: "📌 ";
+            color: #e74c3c;
+        }
+        
+        /* ::after */
+        .after-demo::after {
+            content: " ✓";
+            color: #2ecc71;
+        }
+        
+        /* ::first-letter */
+        .first-letter-demo::first-letter {
+            font-size: 3em;
+            color: #3498db;
+            font-weight: bold;
+            float: left;
+            margin-right: 5px;
+        }
+        
+        /* ::first-line */
+        .first-line-demo::first-line {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        /* ::selection */
+        .selection-demo::selection {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        /* ::placeholder */
+        .placeholder-demo::placeholder {
+            color: #999;
+            font-style: italic;
+        }
+        
+        /* ::marker */
+        .marker-demo li::marker {
+            color: #3498db;
+            font-size: 1.2em;
+        }
+        
+        /* Combined Pseudo-Classes */
+        .combined-demo a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .combined-demo a:hover {
+            color: #e74c3c;
+            text-decoration: underline;
+        }
+        
+        .combined-demo a:active {
+            color: #2ecc71;
+        }
+        
+        /* Input States */
+        .input-states input {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .input-states input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        .input-states input:valid {
+            border-color: #2ecc71;
+        }
+        
+        .input-states input:invalid {
+            border-color: #e74c3c;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Pseudo-Classes & Pseudo-Elements</h1>
+    
+    <!-- :hover -->
+    <div class="section">
+        <h2>1. :hover</h2>
+        <div class="demo-box">
+            <button class="btn hover-demo">Hover Saya</button>
+        </div>
+        <code>.element:hover { ... }</code>
+    </div>
+    
+    <!-- :active -->
+    <div class="section">
+        <h2>2. :active</h2>
+        <div class="demo-box">
+            <button class="btn active-demo">Klik Saya</button>
+        </div>
+        <code>.element:active { ... }</code>
+    </div>
+    
+    <!-- :focus -->
+    <div class="section">
+        <h2>3. :focus</h2>
+        <div class="demo-box">
+            <input type="text" class="focus-demo" placeholder="Klik di sini">
+        </div>
+        <code>.element:focus { ... }</code>
+    </div>
+    
+    <!-- :link & :visited -->
+    <div class="section">
+        <h2>4. :link & :visited</h2>
+        <div class="demo-box">
+            <a href="#" class="link-demo">Link belum dikunjungi (:link)</a><br><br>
+            <a href="#" class="visited-demo">Link yang sudah dikunjungi (:visited)</a>
+        </div>
+        <code>a:link { ... } a:visited { ... }</code>
+    </div>
+    
+    <!-- :checked -->
+    <div class="section">
+        <h2>5. :checked</h2>
+        <div class="demo-box">
+            <label>
+                <input type="checkbox" class="checkbox-demo"> Checkbox yang dicentang
+            </label>
+        </div>
+        <code>input:checked { ... }</code>
+    </div>
+    
+    <!-- :disabled -->
+    <div class="section">
+        <h2>6. :disabled</h2>
+        <div class="demo-box">
+            <button class="btn disabled-demo" disabled>Disabled Button</button>
+            <button class="btn enabled-demo">Enabled Button</button>
+        </div>
+        <code>button:disabled { ... } button:enabled { ... }</code>
+    </div>
+    
+    <!-- :required & :optional -->
+    <div class="section">
+        <h2>7. :required & :optional</h2>
+        <div class="demo-box">
+            <input type="text" class="required-demo" required placeholder="Required field">
+            <input type="text" class="optional-demo" placeholder="Optional field">
+        </div>
+        <code>input:required { ... } input:optional { ... }</code>
+    </div>
+    
+    <!-- :valid & :invalid -->
+    <div class="section">
+        <h2>8. :valid & :invalid</h2>
+        <div class="demo-box">
+            <input type="email" class="valid-demo" value="valid@email.com" placeholder="Valid email">
+            <input type="email" class="invalid-demo" value="invalid" placeholder="Invalid email">
+        </div>
+        <code>input:valid { ... } input:invalid { ... }</code>
+    </div>
+    
+    <!-- :first-child -->
+    <div class="section">
+        <h2>9. :first-child & :last-child</h2>
+        <div class="demo-box">
+            <ul class="list-demo">
+                <li>Item pertama (first-child - merah)</li>
+                <li>Item kedua</li>
+                <li>Item ketiga</li>
+                <li>Item terakhir (last-child - hijau)</li>
+            </ul>
+        </div>
+        <code>li:first-child { ... } li:last-child { ... }</code>
+    </div>
+    
+    <!-- :nth-child -->
+    <div class="section">
+        <h2>10. :nth-child</h2>
+        <div class="demo-box">
+            <ul class="nth-child-demo">
+                <li>Item 1 (odd)</li>
+                <li>Item 2 (even)</li>
+                <li>Item 3 (nth-child(3) - merah)</li>
+                <li>Item 4 (even)</li>
+                <li>Item 5 (odd)</li>
+            </ul>
+        </div>
+        <code>li:nth-child(odd) { ... } li:nth-child(even) { ... } li:nth-child(3) { ... }</code>
+    </div>
+    
+    <!-- :nth-of-type -->
+    <div class="section">
+        <h2>11. :nth-of-type, :first-of-type, :last-of-type</h2>
+        <div class="demo-box">
+            <div class="nth-of-type-demo">
+                <h3>Heading</h3>
+                <p>Paragraf pertama</p>
+                <p>Paragraf kedua (nth-of-type(2) - biru)</p>
+                <p>Paragraf ketiga</p>
+            </div>
+        </div>
+        <code>p:nth-of-type(2) { ... } p:first-of-type { ... } p:last-of-type { ... }</code>
+    </div>
+    
+    <!-- :not() -->
+    <div class="section">
+        <h2>12. :not()</h2>
+        <div class="demo-box">
+            <ul class="not-demo">
+                <li style="color: #3498db; font-weight: bold;">Item pertama (bukan :not)</li>
+                <li>Item kedua</li>
+                <li>Item ketiga</li>
+            </ul>
+        </div>
+        <code>li:not(:first-child) { ... }</code>
+    </div>
+    
+    <!-- ::before -->
+    <div class="section">
+        <h2>13. ::before</h2>
+        <div class="demo-box">
+            <p class="before-demo">Teks dengan ::before pseudo-element</p>
+        </div>
+        <code>.element::before { content: "..."; }</code>
+    </div>
+    
+    <!-- ::after -->
+    <div class="section">
+        <h2>14. ::after</h2>
+        <div class="demo-box">
+            <p class="after-demo">Teks dengan ::after pseudo-element</p>
+        </div>
+        <code>.element::after { content: "..."; }</code>
+    </div>
+    
+    <!-- ::first-letter -->
+    <div class="section">
+        <h2>15. ::first-letter</h2>
+        <div class="demo-box">
+            <p class="first-letter-demo">Ini adalah contoh ::first-letter pseudo-element. Huruf pertama akan lebih besar dan berwarna biru.</p>
+        </div>
+        <code>.element::first-letter { ... }</code>
+    </div>
+    
+    <!-- ::first-line -->
+    <div class="section">
+        <h2>16. ::first-line</h2>
+        <div class="demo-box">
+            <p class="first-line-demo" style="max-width: 400px;">
+                Ini adalah baris pertama yang akan di-styled. Baris kedua dan seterusnya akan tetap normal. Resize browser untuk melihat efek pada baris pertama.
+            </p>
+        </div>
+        <code>.element::first-line { ... }</code>
+    </div>
+    
+    <!-- ::selection -->
+    <div class="section">
+        <h2>17. ::selection</h2>
+        <div class="demo-box">
+            <p class="selection-demo">Coba select (blok) teks ini untuk melihat efek ::selection pseudo-element.</p>
+        </div>
+        <code>.element::selection { ... }</code>
+    </div>
+    
+    <!-- ::placeholder -->
+    <div class="section">
+        <h2>18. ::placeholder</h2>
+        <div class="demo-box">
+            <input type="text" class="placeholder-demo" placeholder="Placeholder dengan style khusus">
+        </div>
+        <code>.element::placeholder { ... }</code>
+    </div>
+    
+    <!-- ::marker -->
+    <div class="section">
+        <h2>19. ::marker</h2>
+        <div class="demo-box">
+            <ul class="marker-demo">
+                <li>Item dengan marker styled</li>
+                <li>Item kedua</li>
+                <li>Item ketiga</li>
+            </ul>
+        </div>
+        <code>li::marker { ... }</code>
+    </div>
+    
+    <!-- Combined Pseudo-Classes -->
+    <div class="section">
+        <h2>20. Combined Pseudo-Classes</h2>
+        <div class="demo-box combined-demo">
+            <a href="#">Hover, Active, dan Combined States</a>
+        </div>
+        <code>a:hover { ... } a:active { ... }</code>
+    </div>
+    
+    <!-- Input States -->
+    <div class="section">
+        <h2>21. Input States (Focus, Valid, Invalid)</h2>
+        <div class="demo-box input-states">
+            <input type="email" placeholder="Email (valid jika format email)" value="test@email.com">
+            <input type="email" placeholder="Email (invalid jika bukan email)" value="invalid">
+        </div>
+        <code>input:focus { ... } input:valid { ... } input:invalid { ... }</code>
+    </div>
+    
+    <!-- Reference Table -->
+    <div class="section">
+        <h2>22. Reference Table</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #3498db; color: white;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">Pseudo-Class</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">Deskripsi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td style="padding: 10px; border: 1px solid #ddd;">:hover</td><td style="padding: 10px; border: 1px solid #ddd;">Saat mouse di atas elemen</td></tr>
+                <tr><td style="padding: 10px; border: 1px solid #ddd;">:active</td><td style="padding: 10px; border: 1px solid #ddd;">Saat elemen diklik</td></tr>
+                <tr><td style="padding: 10px; border: 1px solid #ddd;">:focus</td><td style="padding: 10px; border: 1px solid #ddd;">Saat elemen mendapatkan focus</td></tr>
+                <tr><td style="padding: 10px; border: 1px solid #ddd;">:first-child</td><td style="padding: 10px; border: 1px solid #ddd;">Anak pertama dari parent</td></tr>
+                <tr><td style="padding: 10px; border: 1px solid #ddd;">:last-child</td><td style="padding: 10px; border: 1px solid #ddd;">Anak terakhir dari parent</td></tr>
+                <tr><td style="padding: 10px; border: 1px solid #ddd;">:nth-child(n)</td><td style="padding: 10px; border: 1px solid #ddd;">Anak ke-n dari parent</td></tr>
+                <tr><td style="padding: 10px; border: 1px solid #ddd;">:not(selector)</td><td style="padding: 10px; border: 1px solid #ddd;">Elemen yang bukan selector</td></tr>
+                <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">::before</td><td style="padding: 10px; border: 1px solid #ddd;">Sebelum konten elemen</td></tr>
+                <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">::after</td><td style="padding: 10px; border: 1px solid #ddd;">Setelah konten elemen</td></tr>
+                <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">::first-letter</td><td style="padding: 10px; border: 1px solid #ddd;">Huruf pertama</td></tr>
+                <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">::first-line</td><td style="padding: 10px; border: 1px solid #ddd;">Baris pertama</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

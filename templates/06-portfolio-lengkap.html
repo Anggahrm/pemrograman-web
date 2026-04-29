@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 6 - Portfolio Lengkap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #667eea;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Section */
+        section {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        /* Profile Section */
+        .profile-container {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .profile-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #667eea;
+        }
+        
+        .profile-info h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .profile-info blockquote {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* Form */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 12px 30px;
+            margin-right: 10px;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #764ba2;
+        }
+        
+        input[type="reset"] {
+            background-color: #e74c3c;
+        }
+        
+        input[type="reset"]:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Portfolio Mahasiswa</h1>
+        <p>Dwi Angga Hermawan - Program Studi Informatika</p>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#profil" class="active">Profil</a></li>
+            <li><a href="#pendidikan">Pendidikan</a></li>
+            <li><a href="#keahlian">Keahlian</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Profil Section -->
+        <section id="profil">
+            <h2>Profil Saya</h2>
+            <div class="profile-container">
+                <div class="profile-image">
+                    <img src="https://via.placeholder.com/200" alt="Foto Profil">
+                </div>
+                <div class="profile-info">
+                    <h3>Dwi Angga Hermawan</h3>
+                    <p><strong>Program Studi:</strong> Informatika</p>
+                    <p><strong>NIM:</strong> 12345678</p>
+                    
+                    <blockquote>
+                        "Hari ini adalah kesempatan baru untuk belajar sesuatu yang baru."
+                    </blockquote>
+                    
+                    <h4>Tiga Target Kuliah:</h4>
+                    <ul>
+                        <li>Lulus tepat waktu</li>
+                        <li>Masuk BUMN</li>
+                        <li>Membanggakan orang tua</li>
+                    </ul>
+                    
+                    <p>Tertarik kepoin proyekku? <a href="https://github.com/anggahrm" target="_blank" style="color: #667eea; font-weight: bold;">Akses GitHub Saya</a></p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pendidikan Section -->
+        <section id="pendidikan">
+            <h2>Riwayat Pendidikan</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tingkat</th>
+                        <th>Nama Institusi</th>
+                        <th>Tahun</th>
+                        <th>Prestasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SMA</td>
+                        <td>SMAN 1 Contoh</td>
+                        <td>2019-2022</td>
+                        <td>Juara 1 Olimpiade Matematika</td>
+                    </tr>
+                    <tr>
+                        <td>S1</td>
+                        <td>Universitas Contoh</td>
+                        <td>2022-Sekarang</td>
+                        <td>IPK 3.85</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Keahlian Section -->
+        <section id="keahlian">
+            <h2>Keahlian & Hobi</h2>
+            <h3>Keahlian Teknis:</h3>
+            <ul>
+                <li><strong>HTML & CSS</strong> - Mahir</li>
+                <li><strong>JavaScript</strong> - Intermediate</li>
+                <li><strong>Python</strong> - Intermediate</li>
+                <li><strong>Database (MySQL)</strong> - Basic</li>
+            </ul>
+            
+            <h3>Hobi:</h3>
+            <ol>
+                <li>Coding</li>
+                <li>Membaca buku teknologi</li>
+                <li>Bermain game</li>
+                <li>Menulis blog</li>
+            </ol>
+        </section>
+        
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h2>Portfolio Proyek</h2>
+            <h3>Proyek yang telah dibuat:</h3>
+            <ul>
+                <li><strong>Website E-commerce</strong> - Platform jual beli online dengan PHP dan MySQL</li>
+                <li><strong>Aplikasi To-Do List</strong> - Aplikasi manajemen tugas dengan JavaScript</li>
+                <li><strong>Sistem Informasi Kampus</strong> - Sistem manajemen data mahasiswa</li>
+                <li><strong>Website Portfolio Pribadi</strong> - Website ini sendiri</li>
+            </ul>
+        </section>
+        
+        <!-- Kontak Section -->
+        <section id="kontak">
+            <h2>Hubungi Saya</h2>
+            <p>Isi form di bawah ini untuk mengirim pesan:</p>
+            
+            <form action="/submit" method="post">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap:</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subjek">Subjek:</label>
+                    <input type="text" id="subjek" name="subjek" placeholder="Subjek pesan">
+                </div>
+                
+                <div class="form-group">
+                    <label for="kategori">Kategori:</label>
+                    <select id="kategori" name="kategori">
+                        <option value="">-- Pilih Kategori --</option>
+                        <option value="pertanyaan">Pertanyaan</option>
+                        <option value="kolaborasi">Kolaborasi</option>
+                        <option value="tawaran">Tawaran Proyek</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pesan">Pesan:</label>
+                    <textarea id="pesan" name="pesan" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <input type="submit" value="Kirim Pesan">
+                    <input type="reset" value="Reset">
+                </div>
+            </form>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Dwi Angga Hermawan. All rights reserved.</p>
+        <p>Program Studi Informatika - Universitas Contoh</p>
+    </footer>
+</body>
+</html>

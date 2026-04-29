@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 14 - Media Elements</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        /* Image Styles */
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .image-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .image-box {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .image-box img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .image-caption {
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* Picture Element */
+        .picture-demo {
+            margin: 20px 0;
+        }
+        
+        /* Video Styles */
+        .video-container {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Audio Styles */
+        .audio-container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        audio {
+            width: 100%;
+        }
+        
+        /* Iframe Styles */
+        .iframe-container {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        iframe {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Responsive Iframe */
+        .responsive-iframe {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .responsive-iframe iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Map Iframe */
+        .map-container {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        /* Object & Embed */
+        .object-container,
+        .embed-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        /* Source & Track */
+        .video-demo {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        /* SVG */
+        .svg-container {
+            max-width: 400px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Media Elements Examples</h1>
+    
+    <!-- Image -->
+    <div class="section">
+        <h2>1. Image (img tag)</h2>
+        <h3>Basic Image</h3>
+        <img src="https://via.placeholder.com/400x200" alt="Placeholder Image" class="responsive-image">
+        <code>&lt;img src="image.jpg" alt="Description"&gt;</code>
+        
+        <h3>Image with Different Sizes</h3>
+        <div class="image-container">
+            <div class="image-box">
+                <img src="https://via.placeholder.com/200x150" alt="Small Image">
+                <p class="image-caption">200x150</p>
+            </div>
+            <div class="image-box">
+                <img src="https://via.placeholder.com/300x200" alt="Medium Image">
+                <p class="image-caption">300x200</p>
+            </div>
+            <div class="image-box">
+                <img src="https://via.placeholder.com/400x250" alt="Large Image">
+                <p class="image-caption">400x250</p>
+            </div>
+        </div>
+        
+        <h3>Image with srcset (Responsive Images)</h3>
+        <img src="https://via.placeholder.com/400x200" 
+             srcset="https://via.placeholder.com/400x200 400w,
+                     https://via.placeholder.com/800x400 800w,
+                     https://via.placeholder.com/1200x600 1200w"
+             sizes="(max-width: 600px) 400px,
+                    (max-width: 900px) 800px,
+                    1200px"
+             alt="Responsive Image" class="responsive-image">
+    </div>
+    
+    <!-- Picture Element -->
+    <div class="section">
+        <h2>2. Picture Element (Art Direction)</h2>
+        <div class="picture-demo">
+            <picture>
+                <source media="(max-width: 600px)" srcset="https://via.placeholder.com/300x200">
+                <source media="(max-width: 900px)" srcset="https://via.placeholder.com/600x400">
+                <img src="https://via.placeholder.com/800x500" alt="Art Direction Example" class="responsive-image">
+            </picture>
+        </div>
+        <code>&lt;picture&gt;&lt;source media="..." srcset="..."&gt;&lt;img ...&gt;&lt;/picture&gt;</code>
+    </div>
+    
+    <!-- Video -->
+    <div class="section">
+        <h2>3. Video Element</h2>
+        <h3>Basic Video with Controls</h3>
+        <div class="video-container">
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                Browser Anda tidak mendukung tag video.
+            </video>
+        </div>
+        
+        <h3>Video with Poster</h3>
+        <div class="video-container">
+            <video controls poster="https://via.placeholder.com/800x450?text=Video+Poster">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Browser Anda tidak mendukung tag video.
+            </video>
+        </div>
+        
+        <h3>Video Attributes</h3>
+        <ul>
+            <li><code>controls</code> - Menampilkan kontrol video</li>
+            <li><code>autoplay</code> - Memutar video otomatis</li>
+            <li><code>loop</code> - Mengulang video</li>
+            <li><code>muted</code> - Mematikan suara</li>
+            <li><code>poster</code> - Gambar thumbnail sebelum diputar</li>
+            <li><code>width/height</code> - Ukuran video</li>
+        </ul>
+    </div>
+    
+    <!-- Audio -->
+    <div class="section">
+        <h2>4. Audio Element</h2>
+        <div class="audio-container">
+            <h3>Basic Audio with Controls</h3>
+            <audio controls>
+                <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+                <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                Browser Anda tidak mendukung tag audio.
+            </audio>
+        </div>
+        
+        <h3>Audio Attributes</h3>
+        <ul>
+            <li><code>controls</code> - Menampilkan kontrol audio</li>
+            <li><code>autoplay</code> - Memutar audio otomatis</li>
+            <li><code>loop</code> - Mengulang audio</li>
+            <li><code>muted</code> - Mematikan suara</li>
+        </ul>
+    </div>
+    
+    <!-- Iframe -->
+    <div class="section">
+        <h2>5. Iframe (Inline Frame)</h2>
+        <h3>Basic Iframe</h3>
+        <div class="iframe-container">
+            <iframe src="https://www.example.com" height="300" title="Example Website"></iframe>
+        </div>
+        
+        <h3>Responsive Iframe (16:9 Aspect Ratio)</h3>
+        <div class="iframe-container">
+            <div class="responsive-iframe">
+                <iframe src="https://www.example.com" title="Responsive Iframe"></iframe>
+            </div>
+        </div>
+        
+        <h3>Iframe Attributes</h3>
+        <ul>
+            <li><code>src</code> - URL halaman yang akan di-embed</li>
+            <li><code>width/height</code> - Ukuran iframe</li>
+            <li><code>title</code> - Judul untuk aksesibilitas</li>
+            <li><code>loading="lazy"</code> - Lazy loading</li>
+            <li><code>sandbox</code> - Keamanan tambahan</li>
+        </ul>
+    </div>
+    
+    <!-- Map Iframe -->
+    <div class="section">
+        <h2>6. Google Maps Iframe</h2>
+        <div class="map-container">
+            <div class="responsive-iframe">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.051032697695!2d106.8271533147693!3d-6.175110395529699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e7645367%3A0x2cc795364736605c!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1635789012345!5m2!1sid!2sid" 
+                    width="600" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    
+    <!-- YouTube Iframe -->
+    <div class="section">
+        <h2>7. YouTube Video Iframe</h2>
+        <div class="iframe-container">
+            <div class="responsive-iframe">
+                <iframe 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Object -->
+    <div class="section">
+        <h2>8. Object Element</h2>
+        <div class="object-container">
+            <object data="https://www.example.com" width="100%" height="300">
+                <p>Browser Anda tidak mendukung object element.</p>
+            </object>
+        </div>
+        <code>&lt;object data="file.pdf" type="application/pdf"&gt;&lt;/object&gt;</code>
+    </div>
+    
+    <!-- Embed -->
+    <div class="section">
+        <h2>9. Embed Element</h2>
+        <div class="embed-container">
+            <embed src="https://www.example.com" width="100%" height="300">
+        </div>
+        <code>&lt;embed src="file.swf" type="application/x-shockwave-flash"&gt;</code>
+    </div>
+    
+    <!-- Source & Track -->
+    <div class="section">
+        <h2>10. Source & Track (Video with Subtitles)</h2>
+        <div class="video-demo">
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <track src="subtitles_id.vtt" kind="subtitles" srclang="id" label="Bahasa Indonesia">
+                Browser Anda tidak mendukung tag video.
+            </video>
+        </div>
+        <p>Track element digunakan untuk subtitle/caption pada video.</p>
+    </div>
+    
+    <!-- SVG -->
+    <div class="section">
+        <h2>11. SVG (Scalable Vector Graphics)</h2>
+        <h3>Inline SVG</h3>
+        <div class="svg-container">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="50" fill="#3498db" stroke="#2c3e50" stroke-width="5"/>
+                <rect x="50" y="50" width="100" height="100" fill="none" stroke="#e74c3c" stroke-width="3"/>
+            </svg>
+        </div>
+        
+        <h3>SVG as Image</h3>
+        <img src="https://via.placeholder.com/100" alt="SVG Image" style="margin: 10px;">
+    </div>
+    
+    <!-- Canvas -->
+    <div class="section">
+        <h2>12. Canvas Element</h2>
+        <canvas id="myCanvas" width="400" height="200" style="border: 1px solid #ddd; margin: 20px auto; display: block;"></canvas>
+        <script>
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#3498db';
+            ctx.fillRect(50, 50, 100, 100);
+            ctx.fillStyle = '#e74c3c';
+            ctx.beginPath();
+            ctx.arc(250, 100, 50, 0, 2 * Math.PI);
+            ctx.fill();
+        </script>
+    </div>
+    
+    <!-- Figure & Figcaption -->
+    <div class="section">
+        <h2>13. Figure & Figcaption</h2>
+        <figure style="margin: 20px 0; text-align: center;">
+            <img src="https://via.placeholder.com/400x250" alt="Figure Example" style="max-width: 100%; border-radius: 8px;">
+            <figcaption style="margin-top: 10px; font-style: italic; color: #666;">
+                Gambar 1: Contoh penggunaan figure dan figcaption
+            </figcaption>
+        </figure>
+    </div>
+    
+    <!-- Best Practices -->
+    <div class="section">
+        <h2>14. Best Practices untuk Media Elements</h2>
+        <ul>
+            <li>Selalu gunakan <code>alt</code> attribute pada img untuk aksesibilitas</li>
+            <li>Gunakan <code>srcset</code> dan <code>sizes</code> untuk gambar responsif</li>
+            <li>Gunakan <code>poster</code> pada video untuk thumbnail</li>
+            <li>Gunakan <code>loading="lazy"</code> pada iframe untuk performa</li>
+            <li>Gunakan <code>title</code> pada iframe untuk aksesibilitas</li>
+            <li>Kompres gambar dan video sebelum upload</li>
+            <li>Gunakan format modern (WebP untuk gambar, MP4 untuk video)</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 9 - CSS Grid Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        /* Grid Container Basic */
+        .grid-container {
+            display: grid;
+            background-color: #f9f9f9;
+            padding: 10px;
+            gap: 10px;
+        }
+        
+        .grid-item {
+            background-color: #3498db;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        /* Grid Template Columns */
+        .grid-3-columns {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        
+        .grid-4-columns {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .grid-mixed {
+            grid-template-columns: 200px 1fr 2fr;
+        }
+        
+        .grid-auto-fit {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        /* Grid Template Rows */
+        .grid-rows {
+            grid-template-rows: 100px 200px 100px;
+        }
+        
+        /* Grid Gap */
+        .grid-gap-20 {
+            gap: 20px;
+        }
+        
+        .grid-gap-30 {
+            gap: 30px;
+        }
+        
+        .grid-column-gap {
+            column-gap: 30px;
+            row-gap: 10px;
+        }
+        
+        /* Grid Column/Row Span */
+        .span-2 {
+            grid-column: span 2;
+        }
+        
+        .span-3 {
+            grid-column: span 3;
+        }
+        
+        .row-span-2 {
+            grid-row: span 2;
+        }
+        
+        /* Grid Areas */
+        .grid-areas {
+            grid-template-areas:
+                "header header header"
+                "sidebar content content"
+                "footer footer footer";
+            grid-template-rows: 80px 200px 60px;
+            grid-template-columns: 200px 1fr 1fr;
+        }
+        
+        .area-header {
+            grid-area: header;
+            background-color: #2c3e50;
+        }
+        
+        .area-sidebar {
+            grid-area: sidebar;
+            background-color: #e74c3c;
+        }
+        
+        .area-content {
+            grid-area: content;
+            background-color: #2ecc71;
+        }
+        
+        .area-footer {
+            grid-area: footer;
+            background-color: #f39c12;
+        }
+        
+        /* Justify Items */
+        .justify-start {
+            justify-items: start;
+        }
+        
+        .justify-center {
+            justify-items: center;
+        }
+        
+        .justify-end {
+            justify-items: end;
+        }
+        
+        /* Align Items */
+        .align-start {
+            align-items: start;
+        }
+        
+        .align-center {
+            align-items: center;
+        }
+        
+        .align-end {
+            align-items: end;
+        }
+        
+        /* Different colors */
+        .item-1 { background-color: #3498db; }
+        .item-2 { background-color: #e74c3c; }
+        .item-3 { background-color: #2ecc71; }
+        .item-4 { background-color: #f39c12; }
+        .item-5 { background-color: #9b59b6; }
+        .item-6 { background-color: #1abc9c; }
+        .item-7 { background-color: #34495e; }
+        .item-8 { background-color: #e67e22; }
+        .item-9 { background-color: #16a085; }
+    </style>
+</head>
+<body>
+    <h1>CSS Grid Layout Examples</h1>
+    
+    <!-- Grid Template Columns -->
+    <div class="section">
+        <h2>1. Grid Template Columns</h2>
+        <h3>grid-template-columns: 1fr 1fr 1fr (3 kolom sama)</h3>
+        <div class="grid-container grid-3-columns">
+            <div class="grid-item item-1">1</div>
+            <div class="grid-item item-2">2</div>
+            <div class="grid-item item-3">3</div>
+            <div class="grid-item item-4">4</div>
+            <div class="grid-item item-5">5</div>
+            <div class="grid-item item-6">6</div>
+        </div>
+        
+        <h3>grid-template-columns: repeat(4, 1fr) (4 kolom sama)</h3>
+        <div class="grid-container grid-4-columns">
+            <div class="grid-item item-1">1</div>
+            <div class="grid-item item-2">2</div>
+            <div class="grid-item item-3">3</div>
+            <div class="grid-item item-4">4</div>
+            <div class="grid-item item-5">5</div>
+            <div class="grid-item item-6">6</div>
+            <div class="grid-item item-7">7</div>
+            <div class="grid-item item-8">8</div>
+        </div>
+        
+        <h3>grid-template-columns: 200px 1fr 2fr (kolom campuran)</h3>
+        <div class="grid-container grid-mixed">
+            <div class="grid-item item-1">200px</div>
+            <div class="grid-item item-2">1fr</div>
+            <div class="grid-item item-3">2fr</div>
+            <div class="grid-item item-4">200px</div>
+            <div class="grid-item item-5">1fr</div>
+            <div class="grid-item item-6">2fr</div>
+        </div>
+        
+        <h3>grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) (responsive)</h3>
+        <div class="grid-container grid-auto-fit">
+            <div class="grid-item item-1">Item 1</div>
+            <div class="grid-item item-2">Item 2</div>
+            <div class="grid-item item-3">Item 3</div>
+            <div class="grid-item item-4">Item 4</div>
+            <div class="grid-item item-5">Item 5</div>
+        </div>
+    </div>
+    
+    <!-- Grid Template Rows -->
+    <div class="section">
+        <h2>2. Grid Template Rows</h2>
+        <h3>grid-template-rows: 100px 200px 100px</h3>
+        <div class="grid-container grid-3-columns grid-rows">
+            <div class="grid-item item-1">1 (100px)</div>
+            <div class="grid-item item-2">2</div>
+            <div class="grid-item item-3">3</div>
+            <div class="grid-item item-4">4 (200px)</div>
+            <div class="grid-item item-5">5</div>
+            <div class="grid-item item-6">6</div>
+            <div class="grid-item item-7">7 (100px)</div>
+            <div class="grid-item item-8">8</div>
+            <div class="grid-item item-9">9</div>
+        </div>
+    </div>
+    
+    <!-- Grid Gap -->
+    <div class="section">
+        <h2>3. Grid Gap</h2>
+        <h3>gap: 20px</h3>
+        <div class="grid-container grid-3-columns grid-gap-20">
+            <div class="grid-item item-1">1</div>
+            <div class="grid-item item-2">2</div>
+            <div class="grid-item item-3">3</div>
+            <div class="grid-item item-4">4</div>
+            <div class="grid-item item-5">5</div>
+            <div class="grid-item item-6">6</div>
+        </div>
+        
+        <h3>column-gap: 30px, row-gap: 10px</h3>
+        <div class="grid-container grid-3-columns grid-column-gap">
+            <div class="grid-item item-1">1</div>
+            <div class="grid-item item-2">2</div>
+            <div class="grid-item item-3">3</div>
+            <div class="grid-item item-4">4</div>
+            <div class="grid-item item-5">5</div>
+            <div class="grid-item item-6">6</div>
+        </div>
+    </div>
+    
+    <!-- Grid Column/Row Span -->
+    <div class="section">
+        <h2>4. Grid Column/Row Span</h2>
+        <h3>grid-column: span 2</h3>
+        <div class="grid-container grid-3-columns">
+            <div class="grid-item item-1 span-2">Item 1 (span 2)</div>
+            <div class="grid-item item-2">Item 2</div>
+            <div class="grid-item item-3">Item 3</div>
+            <div class="grid-item item-4">Item 4</div>
+            <div class="grid-item item-5">Item 5</div>
+        </div>
+        
+        <h3>grid-row: span 2</h3>
+        <div class="grid-container grid-3-columns" style="grid-template-rows: 80px 80px;">
+            <div class="grid-item item-1 row-span-2">Item 1 (row span 2)</div>
+            <div class="grid-item item-2">Item 2</div>
+            <div class="grid-item item-3">Item 3</div>
+            <div class="grid-item item-4">Item 4</div>
+            <div class="grid-item item-5">Item 5</div>
+        </div>
+    </div>
+    
+    <!-- Grid Areas -->
+    <div class="section">
+        <h2>5. Grid Template Areas</h2>
+        <div class="grid-container grid-areas" style="gap: 5px;">
+            <div class="grid-item area-header">Header</div>
+            <div class="grid-item area-sidebar">Sidebar</div>
+            <div class="grid-item area-content">Content</div>
+            <div class="grid-item area-footer">Footer</div>
+        </div>
+    </div>
+    
+    <!-- Justify & Align Items -->
+    <div class="section">
+        <h2>6. Justify Items & Align Items</h2>
+        <h3>justify-items: center, align-items: center</h3>
+        <div class="grid-container grid-3-columns justify-center align-center" style="height: 200px;">
+            <div class="grid-item item-1">1</div>
+            <div class="grid-item item-2">2</div>
+            <div class="grid-item item-3">3</div>
+            <div class="grid-item item-4">4</div>
+            <div class="grid-item item-5">5</div>
+            <div class="grid-item item-6">6</div>
+        </div>
+        
+        <h3>justify-items: end, align-items: end</h3>
+        <div class="grid-container grid-3-columns justify-end align-end" style="height: 200px;">
+            <div class="grid-item item-1">1</div>
+            <div class="grid-item item-2">2</div>
+            <div class="grid-item item-3">3</div>
+            <div class="grid-item item-4">4</div>
+            <div class="grid-item item-5">5</div>
+            <div class="grid-item item-6">6</div>
+        </div>
+    </div>
+    
+    <!-- Real Example: Dashboard Layout -->
+    <div class="section">
+        <h2>7. Real Example: Dashboard Layout</h2>
+        <div class="grid-container" style="grid-template-columns: 250px 1fr; grid-template-rows: 60px 1fr 60px; grid-template-areas: 'header header' 'sidebar main' 'sidebar footer'; height: 400px; gap: 10px;">
+            <div class="grid-item area-header" style="grid-area: header;">Header</div>
+            <div class="grid-item area-sidebar" style="grid-area: sidebar;">Sidebar</div>
+            <div class="grid-item area-content" style="grid-area: main;">Main Content</div>
+            <div class="grid-item area-footer" style="grid-area: footer;">Footer</div>
+        </div>
+    </div>
+    
+    <!-- Real Example: Photo Gallery -->
+    <div class="section">
+        <h2>8. Real Example: Photo Gallery</h2>
+        <div class="grid-container" style="grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px;">
+            <div class="grid-item item-1" style="height: 150px;">Photo 1</div>
+            <div class="grid-item item-2" style="height: 150px;">Photo 2</div>
+            <div class="grid-item item-3" style="height: 150px;">Photo 3</div>
+            <div class="grid-item item-4" style="height: 150px;">Photo 4</div>
+            <div class="grid-item item-5" style="height: 150px;">Photo 5</div>
+            <div class="grid-item item-6" style="height: 150px;">Photo 6</div>
+            <div class="grid-item item-7" style="height: 150px;">Photo 7</div>
+            <div class="grid-item item-8" style="height: 150px;">Photo 8</div>
+        </div>
+    </div>
+</body>
+</html>

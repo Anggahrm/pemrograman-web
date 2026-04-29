@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 8 - CSS Flexbox Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        /* Flex Container Basic */
+        .flex-container {
+            display: flex;
+            background-color: #f9f9f9;
+            padding: 10px;
+            gap: 10px;
+        }
+        
+        .flex-item {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            flex: 1;
+        }
+        
+        /* Flex Direction */
+        .flex-row {
+            flex-direction: row;
+        }
+        
+        .flex-column {
+            flex-direction: column;
+        }
+        
+        .flex-row-reverse {
+            flex-direction: row-reverse;
+        }
+        
+        /* Flex Wrap */
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .flex-nowrap {
+            flex-wrap: nowrap;
+        }
+        
+        /* Justify Content */
+        .justify-start {
+            justify-content: flex-start;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .justify-end {
+            justify-content: flex-end;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .justify-around {
+            justify-content: space-around;
+        }
+        
+        .justify-evenly {
+            justify-content: space-evenly;
+        }
+        
+        /* Align Items */
+        .align-start {
+            align-items: flex-start;
+        }
+        
+        .align-center {
+            align-items: center;
+        }
+        
+        .align-end {
+            align-items: flex-end;
+        }
+        
+        .align-stretch {
+            align-items: stretch;
+        }
+        
+        .align-baseline {
+            align-items: baseline;
+        }
+        
+        /* Align Content (for multi-line) */
+        .align-content-start {
+            align-content: flex-start;
+        }
+        
+        .align-content-center {
+            align-content: center;
+        }
+        
+        .align-content-between {
+            align-content: space-between;
+        }
+        
+        /* Flex Grow, Shrink, Basis */
+        .item-grow-1 {
+            flex-grow: 1;
+        }
+        
+        .item-grow-2 {
+            flex-grow: 2;
+        }
+        
+        .item-shrink-0 {
+            flex-shrink: 0;
+        }
+        
+        .item-basis {
+            flex-basis: 200px;
+        }
+        
+        /* Align Self */
+        .align-self-start {
+            align-self: flex-start;
+        }
+        
+        .align-self-center {
+            align-self: center;
+        }
+        
+        .align-self-end {
+            align-self: flex-end;
+        }
+        
+        /* Different colors for items */
+        .item-1 { background-color: #3498db; }
+        .item-2 { background-color: #e74c3c; }
+        .item-3 { background-color: #2ecc71; }
+        .item-4 { background-color: #f39c12; }
+        .item-5 { background-color: #9b59b6; }
+        
+        /* Height for alignment demos */
+        .tall-item {
+            height: 100px;
+        }
+        
+        .short-item {
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Flexbox Layout Examples</h1>
+    
+    <!-- Flex Direction -->
+    <div class="section">
+        <h2>1. Flex Direction</h2>
+        <h3>flex-direction: row (default)</h3>
+        <div class="flex-container flex-row">
+            <div class="flex-item item-1">Item 1</div>
+            <div class="flex-item item-2">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+        
+        <h3>flex-direction: column</h3>
+        <div class="flex-container flex-column" style="margin-top: 10px;">
+            <div class="flex-item item-1">Item 1</div>
+            <div class="flex-item item-2">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+        
+        <h3>flex-direction: row-reverse</h3>
+        <div class="flex-container flex-row-reverse" style="margin-top: 10px;">
+            <div class="flex-item item-1">Item 1</div>
+            <div class="flex-item item-2">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+    </div>
+    
+    <!-- Flex Wrap -->
+    <div class="section">
+        <h2>2. Flex Wrap</h2>
+        <h3>flex-wrap: nowrap (default)</h3>
+        <div class="flex-container flex-nowrap" style="width: 500px;">
+            <div class="flex-item item-1" style="flex: 1 0 200px;">Item 1 - 200px</div>
+            <div class="flex-item item-2" style="flex: 1 0 200px;">Item 2 - 200px</div>
+            <div class="flex-item item-3" style="flex: 1 0 200px;">Item 3 - 200px</div>
+            <div class="flex-item item-4" style="flex: 1 0 200px;">Item 4 - 200px</div>
+        </div>
+        
+        <h3>flex-wrap: wrap</h3>
+        <div class="flex-container flex-wrap" style="width: 500px;">
+            <div class="flex-item item-1" style="flex: 1 0 200px;">Item 1 - 200px</div>
+            <div class="flex-item item-2" style="flex: 1 0 200px;">Item 2 - 200px</div>
+            <div class="flex-item item-3" style="flex: 1 0 200px;">Item 3 - 200px</div>
+            <div class="flex-item item-4" style="flex: 1 0 200px;">Item 4 - 200px</div>
+        </div>
+    </div>
+    
+    <!-- Justify Content -->
+    <div class="section">
+        <h2>3. Justify Content (Horizontal Alignment)</h2>
+        <h3>justify-content: flex-start</h3>
+        <div class="flex-container justify-start">
+            <div class="flex-item item-1">Item 1</div>
+            <div class="flex-item item-2">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+        
+        <h3>justify-content: center</h3>
+        <div class="flex-container justify-center">
+            <div class="flex-item item-1">Item 1</div>
+            <div class="flex-item item-2">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+        
+        <h3>justify-content: flex-end</h3>
+        <div class="flex-container justify-end">
+            <div class="flex-item item-1">Item 1</div>
+            <div class="flex-item item-2">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+        
+        <h3>justify-content: space-between</h3>
+        <div class="flex-container justify-between">
+            <div class="flex-item item-1">Item 1</div>
+            <div class="flex-item item-2">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+        
+        <h3>justify-content: space-around</h3>
+        <div class="flex-container justify-around">
+            <div class="flex-item item-1">Item 1</div>
+            <div class="flex-item item-2">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+        
+        <h3>justify-content: space-evenly</h3>
+        <div class="flex-container justify-evenly">
+            <div class="flex-item item-1">Item 1</div>
+            <div class="flex-item item-2">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+    </div>
+    
+    <!-- Align Items -->
+    <div class="section">
+        <h2>4. Align Items (Vertical Alignment)</h2>
+        <h3>align-items: flex-start</h3>
+        <div class="flex-container align-start" style="height: 150px;">
+            <div class="flex-item item-1 tall-item">Item 1</div>
+            <div class="flex-item item-2 short-item">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+        
+        <h3>align-items: center</h3>
+        <div class="flex-container align-center" style="height: 150px;">
+            <div class="flex-item item-1 tall-item">Item 1</div>
+            <div class="flex-item item-2 short-item">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+        
+        <h3>align-items: flex-end</h3>
+        <div class="flex-container align-end" style="height: 150px;">
+            <div class="flex-item item-1 tall-item">Item 1</div>
+            <div class="flex-item item-2 short-item">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+        
+        <h3>align-items: stretch</h3>
+        <div class="flex-container align-stretch" style="height: 150px;">
+            <div class="flex-item item-1">Item 1</div>
+            <div class="flex-item item-2">Item 2</div>
+            <div class="flex-item item-3">Item 3</div>
+        </div>
+    </div>
+    
+    <!-- Flex Grow, Shrink, Basis -->
+    <div class="section">
+        <h2>5. Flex Grow, Shrink, Basis</h2>
+        <h3>flex-grow (semua flex: 1)</h3>
+        <div class="flex-container">
+            <div class="flex-item item-1" style="flex: 1;">Item 1</div>
+            <div class="flex-item item-2" style="flex: 1;">Item 2</div>
+            <div class="flex-item item-3" style="flex: 1;">Item 3</div>
+        </div>
+        
+        <h3>flex-grow (berbeda)</h3>
+        <div class="flex-container">
+            <div class="flex-item item-1" style="flex: 1;">Item 1</div>
+            <div class="flex-item item-2" style="flex: 2;">Item 2 (2x)</div>
+            <div class="flex-item item-3" style="flex: 3;">Item 3 (3x)</div>
+        </div>
+        
+        <h3>flex-shrink: 0 (tidak menyusut)</h3>
+        <div class="flex-container" style="width: 400px;">
+            <div class="flex-item item-1" style="flex: 1;">Item 1</div>
+            <div class="flex-item item-2" style="flex: 0 0 200px;">Item 2 (fixed)</div>
+            <div class="flex-item item-3" style="flex: 1;">Item 3</div>
+        </div>
+    </div>
+    
+    <!-- Align Self -->
+    <div class="section">
+        <h2>6. Align Self (Individual Item Alignment)</h2>
+        <div class="flex-container" style="height: 150px; align-items: flex-start;">
+            <div class="flex-item item-1 align-self-start">Item 1 (start)</div>
+            <div class="flex-item item-2 align-self-center">Item 2 (center)</div>
+            <div class="flex-item item-3 align-self-end">Item 3 (end)</div>
+        </div>
+    </div>
+    
+    <!-- Real Example: Navigation Bar -->
+    <div class="section">
+        <h2>7. Real Example: Navigation Bar</h2>
+        <div class="flex-container justify-between align-center" style="background-color: #2c3e50; padding: 15px;">
+            <div style="color: white; font-weight: bold; font-size: 1.2em;">Logo</div>
+            <div style="display: flex; gap: 20px;">
+                <a href="#" style="color: white; text-decoration: none;">Home</a>
+                <a href="#" style="color: white; text-decoration: none;">About</a>
+                <a href="#" style="color: white; text-decoration: none;">Contact</a>
+            </div>
+            <div>
+                <button style="padding: 8px 16px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">Login</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

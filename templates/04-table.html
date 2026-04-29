@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 4 - Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contoh Tabel Data Mahasiswa</h1>
+        
+        <!-- Tabel Sederhana -->
+        <h2>Tabel Sederhana</h2>
+        <table border="1" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Jurusan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Dwi Angga Hermawan</td>
+                    <td>12345678</td>
+                    <td>Informatika</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Budi Santoso</td>
+                    <td>87654321</td>
+                    <td>Teknik Sipil</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Siti Aminah</td>
+                    <td>11223344</td>
+                    <td>Teknik Elektro</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Tabel dengan Colspan dan Rowspan -->
+        <h2>Tabel dengan Colspan dan Rowspan</h2>
+        <table border="1" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    <th colspan="4">Data Nilai Mahasiswa</th>
+                </tr>
+                <tr>
+                    <th>Nama</th>
+                    <th>UTS</th>
+                    <th>UAS</th>
+                    <th>Nilai Akhir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">Dwi Angga</td>
+                    <td>85</td>
+                    <td>90</td>
+                    <td>87.5</td>
+                </tr>
+                <tr>
+                    <td>80</td>
+                    <td>85</td>
+                    <td>82.5</td>
+                </tr>
+                <tr>
+                    <td>Budi Santoso</td>
+                    <td>75</td>
+                    <td>80</td>
+                    <td>77.5</td>
+                </tr>
+                <tr>
+                    <td>Siti Aminah</td>
+                    <td>90</td>
+                    <td>95</td>
+                    <td>92.5</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Rata-rata Kelas</td>
+                    <td>85.0</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>

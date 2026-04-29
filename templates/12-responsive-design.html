@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 12 - Responsive Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        /* Fluid Typography */
+        .fluid-text {
+            font-size: clamp(1rem, 2.5vw, 2rem);
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        /* Fluid Width */
+        .fluid-width {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        /* Responsive Grid */
+        .responsive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .grid-item {
+            background-color: #3498db;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        /* Responsive Flexbox */
+        .responsive-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .flex-item {
+            flex: 1 1 300px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        /* Media Query Examples */
+        .media-box {
+            background-color: #2ecc71;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        /* Mobile First Approach */
+        .mobile-first {
+            background-color: #f39c12;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        /* Desktop First Approach */
+        .desktop-first {
+            background-color: #9b59b6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        /* Responsive Images */
+        .responsive-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        /* Responsive Navigation */
+        .nav-container {
+            background-color: #2c3e50;
+            padding: 15px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-logo {
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: #3498db;
+        }
+        
+        /* Responsive Card */
+        .responsive-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-content h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        /* Responsive Table */
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .responsive-table th,
+        .responsive-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .responsive-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .responsive-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Hide/Show Elements */
+        .hide-mobile {
+            display: block;
+        }
+        
+        .show-mobile {
+            display: none;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .fluid-text {
+                font-size: clamp(0.875rem, 4vw, 1.5rem);
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 15px;
+            }
+            
+            .hide-mobile {
+                display: none;
+            }
+            
+            .show-mobile {
+                display: block;
+            }
+            
+            .responsive-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .responsive-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flex-item {
+                flex: 1 1 100%;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            /* Desktop First - Mobile First sudah di atas */
+            .mobile-first {
+                background-color: #1abc9c;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .desktop-first {
+                background-color: #3498db;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            
+            .nav-container {
+                display: none;
+            }
+        }
+        
+        /* Landscape Orientation */
+        @media (orientation: landscape) {
+            .landscape-only {
+                display: block;
+                background-color: #e74c3c;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                border-radius: 5px;
+                margin: 10px 0;
+            }
+        }
+        
+        @media (orientation: portrait) {
+            .landscape-only {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Responsive Design Examples</h1>
+        
+        <!-- Viewport Meta Tag -->
+        <div class="section">
+            <h2>1. Viewport Meta Tag</h2>
+            <p>Meta tag viewport di head:</p>
+            <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>
+            <p style="margin-top: 10px;">Meta tag ini membuat website responsif di berbagai ukuran layar.</p>
+        </div>
+        
+        <!-- Fluid Typography -->
+        <div class="section">
+            <h2>2. Fluid Typography</h2>
+            <p class="fluid-text">Teks ini menggunakan clamp() untuk ukuran font responsif</p>
+            <p>Resize browser untuk melihat perubahan ukuran font.</p>
+            <code>font-size: clamp(1rem, 2.5vw, 2rem);</code>
+        </div>
+        
+        <!-- Fluid Width -->
+        <div class="section">
+            <h2>3. Fluid Width</h2>
+            <div class="fluid-width">
+                <p>Container ini menggunakan width: 100% dengan max-width: 800px</p>
+                <p>Resize browser untuk melihat responsivitasnya.</p>
+            </div>
+        </div>
+        
+        <!-- Responsive Grid -->
+        <div class="section">
+            <h2>4. Responsive Grid (auto-fit + minmax)</h2>
+            <div class="responsive-grid">
+                <div class="grid-item">Grid 1</div>
+                <div class="grid-item">Grid 2</div>
+                <div class="grid-item">Grid 3</div>
+                <div class="grid-item">Grid 4</div>
+                <div class="grid-item">Grid 5</div>
+            </div>
+            <code>grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</code>
+        </div>
+        
+        <!-- Responsive Flexbox -->
+        <div class="section">
+            <h2>5. Responsive Flexbox (flex-wrap)</h2>
+            <div class="responsive-flex">
+                <div class="flex-item">Flex 1</div>
+                <div class="flex-item">Flex 2</div>
+                <div class="flex-item">Flex 3</div>
+            </div>
+            <code>flex: 1 1 300px; (minimum 300px, akan wrap jika kurang)</code>
+        </div>
+        
+        <!-- Media Query Examples -->
+        <div class="section">
+            <h2>6. Media Query Examples</h2>
+            <div class="media-box">
+                <p>Box ini berubah warna berdasarkan ukuran layar.</p>
+                <p>Desktop: Hijau | Tablet: Biru | Mobile: Oranye</p>
+            </div>
+        </div>
+        
+        <!-- Mobile First -->
+        <div class="section">
+            <h2>7. Mobile First Approach</h2>
+            <div class="mobile-first">
+                <p>Mobile First: Mulai dari style mobile, tambahkan media query untuk layar lebih besar.</p>
+            </div>
+        </div>
+        
+        <!-- Desktop First -->
+        <div class="section">
+            <h2>8. Desktop First Approach</h2>
+            <div class="desktop-first">
+                <p>Desktop First: Mulai dari style desktop, tambahkan media query untuk layar lebih kecil.</p>
+            </div>
+        </div>
+        
+        <!-- Responsive Images -->
+        <div class="section">
+            <h2>9. Responsive Images</h2>
+            <img src="https://via.placeholder.com/800x400" alt="Responsive Image" class="responsive-img">
+            <code>max-width: 100%; height: auto;</code>
+        </div>
+        
+        <!-- Responsive Navigation -->
+        <div class="section">
+            <h2>10. Responsive Navigation</h2>
+            <div class="nav-container">
+                <div class="nav-menu">
+                    <div class="nav-logo">Logo</div>
+                    <ul class="nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top: 10px;">Resize browser ke ukuran mobile untuk melihat perubahan layout navigasi.</p>
+        </div>
+        
+        <!-- Responsive Card -->
+        <div class="section">
+            <h2>11. Responsive Card</h2>
+            <div class="responsive-card">
+                <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-image">
+                <div class="card-content">
+                    <h3>Card Title</h3>
+                    <p>Ini adalah contoh card responsif yang menyesuaikan dengan ukuran layar.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Responsive Table -->
+        <div class="section">
+            <h2>12. Responsive Table</h2>
+            <div style="overflow-x: auto;">
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Telepon</th>
+                            <th>Alamat</th>
+                            <th>Kota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dwi Angga</td>
+                            <td>angga@email.com</td>
+                            <td>081234567890</td>
+                            <td>Jl. Contoh 123</td>
+                            <td>Jakarta</td>
+                        </tr>
+                        <tr>
+                            <td>Budi Santoso</td>
+                            <td>budi@email.com</td>
+                            <td>081987654321</td>
+                            <td>Jl. Test 456</td>
+                            <td>Bandung</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Hide/Show Elements -->
+        <div class="section">
+            <h2>13. Hide/Show Elements Based on Screen Size</h2>
+            <div class="hide-mobile">
+                <p style="background-color: #3498db; color: white; padding: 10px; border-radius: 5px;">
+                    Ini hanya terlihat di desktop (lebar dari 769px)
+                </p>
+            </div>
+            <div class="show-mobile">
+                <p style="background-color: #e74c3c; color: white; padding: 10px; border-radius: 5px;">
+                    Ini hanya terlihat di mobile (maksimal 768px)
+                </p>
+            </div>
+        </div>
+        
+        <!-- Orientation -->
+        <div class="section">
+            <h2>14. Orientation-Based Styling</h2>
+            <div class="landscape-only">
+                <p>Anda dalam mode landscape!</p>
+            </div>
+            <p>Rotate device untuk melihat perubahan.</p>
+        </div>
+        
+        <!-- Breakpoints Reference -->
+        <div class="section">
+            <h2>15. Common Breakpoints Reference</h2>
+            <ul>
+                <li><strong>Mobile:</strong> max-width: 480px</li>
+                <li><strong>Tablet:</strong> 481px - 768px</li>
+                <li><strong>Small Desktop:</strong> 769px - 1024px</li>
+                <li><strong>Large Desktop:</strong> min-width: 1025px</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 11 - CSS Transitions & Animations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .demo-area {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .box {
+            background-color: #3498db;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+        
+        /* Basic Transition */
+        .transition-basic {
+            transition: background-color 0.3s ease;
+        }
+        
+        .transition-basic:hover {
+            background-color: #e74c3c;
+        }
+        
+        /* Multiple Properties Transition */
+        .transition-multiple {
+            transition: background-color 0.3s ease, 
+                        transform 0.3s ease, 
+                        border-radius 0.3s ease;
+        }
+        
+        .transition-multiple:hover {
+            background-color: #2ecc71;
+            transform: scale(1.1);
+            border-radius: 50px;
+        }
+        
+        /* Transition Timing Functions */
+        .transition-linear {
+            transition: background-color 0.5s linear;
+        }
+        
+        .transition-linear:hover {
+            background-color: #f39c12;
+        }
+        
+        .transition-ease-in {
+            transition: background-color 0.5s ease-in;
+        }
+        
+        .transition-ease-in:hover {
+            background-color: #9b59b6;
+        }
+        
+        .transition-ease-out {
+            transition: background-color 0.5s ease-out;
+        }
+        
+        .transition-ease-out:hover {
+            background-color: #1abc9c;
+        }
+        
+        .transition-ease-in-out {
+            transition: background-color 0.5s ease-in-out;
+        }
+        
+        .transition-ease-in-out:hover {
+            background-color: #e67e22;
+        }
+        
+        /* Transition Delay */
+        .transition-delay {
+            transition: background-color 0.3s ease 0.5s;
+        }
+        
+        .transition-delay:hover {
+            background-color: #34495e;
+        }
+        
+        /* Keyframe Animation - Basic */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .animation-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Keyframe Animation - Rotate */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .animation-rotate {
+            animation: rotate 3s linear infinite;
+        }
+        
+        /* Keyframe Animation - Color Change */
+        @keyframes colorChange {
+            0% { background-color: #3498db; }
+            25% { background-color: #e74c3c; }
+            50% { background-color: #2ecc71; }
+            75% { background-color: #f39c12; }
+            100% { background-color: #3498db; }
+        }
+        
+        .animation-color {
+            animation: colorChange 4s infinite;
+        }
+        
+        /* Keyframe Animation - Slide */
+        @keyframes slide {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .animation-slide {
+            animation: slide 3s ease-in-out infinite;
+        }
+        
+        /* Keyframe Animation - Fade */
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        .animation-fade {
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+        
+        /* Animation with Multiple Steps */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animation-bounce {
+            animation: bounce 1s ease-in-out infinite;
+        }
+        
+        /* Animation Direction */
+        .animation-alternate {
+            animation: colorChange 4s infinite alternate;
+        }
+        
+        .animation-reverse {
+            animation: colorChange 4s infinite reverse;
+        }
+        
+        /* Animation Play State */
+        .animation-paused:hover {
+            animation-play-state: paused;
+        }
+        
+        /* Animation Fill Mode */
+        .animation-forwards {
+            animation: pulse 2s forwards;
+        }
+        
+        /* Transform Examples */
+        .transform-scale:hover {
+            transform: scale(1.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .transform-rotate:hover {
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .transform-translate:hover {
+            transform: translate(10px, 10px);
+            transition: transform 0.3s ease;
+        }
+        
+        .transform-skew:hover {
+            transform: skew(10deg, 10deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .transform-complex:hover {
+            transform: scale(1.1) rotate(10deg) translate(5px, 5px);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Button Hover Effect */
+        .btn-hover {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .btn-hover:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Card Hover Effect */
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Loading Spinner */
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Typing Effect */
+        .typing {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #3498db;
+            animation: typing 3s steps(30) infinite, blink 0.5s step-end infinite alternate;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Transitions & Animations</h1>
+    
+    <!-- Basic Transition -->
+    <div class="section">
+        <h2>1. Basic Transition</h2>
+        <p>Hover di bawah untuk melihat efek transition:</p>
+        <div class="demo-area">
+            <div class="box transition-basic">Hover Saya</div>
+        </div>
+        <code>transition: background-color 0.3s ease;</code>
+    </div>
+    
+    <!-- Multiple Properties Transition -->
+    <div class="section">
+        <h2>2. Multiple Properties Transition</h2>
+        <p>Transition pada beberapa properti sekaligus:</p>
+        <div class="demo-area">
+            <div class="box transition-multiple">Hover Saya</div>
+        </div>
+        <code>transition: background-color 0.3s ease, transform 0.3s ease, border-radius 0.3s ease;</code>
+    </div>
+    
+    <!-- Transition Timing Functions -->
+    <div class="section">
+        <h2>3. Transition Timing Functions</h2>
+        <div class="demo-area">
+            <div class="box transition-linear">linear</div>
+            <div class="box transition-ease-in">ease-in</div>
+            <div class="box transition-ease-out">ease-out</div>
+            <div class="box transition-ease-in-out">ease-in-out</div>
+        </div>
+    </div>
+    
+    <!-- Transition Delay -->
+    <div class="section">
+        <h2>4. Transition Delay</h2>
+        <p>Transition dengan delay 0.5 detik:</p>
+        <div class="demo-area">
+            <div class="box transition-delay">Hover Saya (tunggu 0.5s)</div>
+        </div>
+        <code>transition: background-color 0.3s ease 0.5s;</code>
+    </div>
+    
+    <!-- Keyframe Animation - Pulse -->
+    <div class="section">
+        <h2>5. Keyframe Animation - Pulse</h2>
+        <div class="demo-area">
+            <div class="box animation-pulse">Pulse Animation</div>
+        </div>
+    </div>
+    
+    <!-- Keyframe Animation - Rotate -->
+    <div class="section">
+        <h2>6. Keyframe Animation - Rotate</h2>
+        <div class="demo-area">
+            <div class="box animation-rotate">Rotate Animation</div>
+        </div>
+    </div>
+    
+    <!-- Keyframe Animation - Color Change -->
+    <div class="section">
+        <h2>7. Keyframe Animation - Color Change</h2>
+        <div class="demo-area">
+            <div class="box animation-color">Color Change</div>
+        </div>
+    </div>
+    
+    <!-- Keyframe Animation - Slide -->
+    <div class="section">
+        <h2>8. Keyframe Animation - Slide</h2>
+        <div class="demo-area" style="overflow: hidden;">
+            <div class="box animation-slide">Slide Animation</div>
+        </div>
+    </div>
+    
+    <!-- Keyframe Animation - Fade -->
+    <div class="section">
+        <h2>9. Keyframe Animation - Fade In/Out</h2>
+        <div class="demo-area">
+            <div class="box animation-fade">Fade Animation</div>
+        </div>
+    </div>
+    
+    <!-- Keyframe Animation - Bounce -->
+    <div class="section">
+        <h2>10. Keyframe Animation - Bounce</h2>
+        <div class="demo-area">
+            <div class="box animation-bounce">Bounce Animation</div>
+        </div>
+    </div>
+    
+    <!-- Animation Direction -->
+    <div class="section">
+        <h2>11. Animation Direction</h2>
+        <div class="demo-area">
+            <div class="box animation-alternate">alternate</div>
+            <div class="box animation-reverse">reverse</div>
+        </div>
+    </div>
+    
+    <!-- Animation Play State -->
+    <div class="section">
+        <h2>12. Animation Play State</h2>
+        <p>Hover untuk pause animation:</p>
+        <div class="demo-area">
+            <div class="box animation-pulse animation-paused">Hover to Pause</div>
+        </div>
+        <code>animation-play-state: paused;</code>
+    </div>
+    
+    <!-- Transform Examples -->
+    <div class="section">
+        <h2>13. Transform Examples</h2>
+        <div class="demo-area">
+            <div class="box transform-scale">Scale</div>
+            <div class="box transform-rotate">Rotate</div>
+            <div class="box transform-translate">Translate</div>
+            <div class="box transform-skew">Skew</div>
+            <div class="box transform-complex">Complex</div>
+        </div>
+    </div>
+    
+    <!-- Button Hover Effect -->
+    <div class="section">
+        <h2>14. Button Hover Effect</h2>
+        <div class="demo-area">
+            <button class="btn-hover">Hover Me!</button>
+        </div>
+    </div>
+    
+    <!-- Card Hover Effect -->
+    <div class="section">
+        <h2>15. Card Hover Effect</h2>
+        <div class="demo-area">
+            <div class="card" style="width: 200px;">
+                <h3>Card Title</h3>
+                <p>Hover pada card ini untuk melihat efek.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading Spinner -->
+    <div class="section">
+        <h2>16. Loading Spinner</h2>
+        <div class="demo-area" style="display: flex; align-items: center; justify-content: center;">
+            <div class="spinner"></div>
+        </div>
+    </div>
+    
+    <!-- Typing Effect -->
+    <div class="section">
+        <h2>17. Typing Effect</h2>
+        <div class="demo-area">
+            <h3 class="typing">Ini adalah efek typing animation...</h3>
+        </div>
+    </div>
+</body>
+</html>

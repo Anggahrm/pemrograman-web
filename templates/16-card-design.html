@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 16 - Card Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        /* Basic Card */
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .card-text {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .card-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .card-button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Card with Badge */
+        .card-badge {
+            position: relative;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        /* Card with Overlay */
+        .card-overlay {
+            position: relative;
+        }
+        
+        .card-overlay .card-image {
+            height: 250px;
+        }
+        
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            color: white;
+        }
+        
+        /* Card with Icon */
+        .card-icon {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            margin: 0 auto 20px;
+        }
+        
+        /* Card with Tags */
+        .card-tags {
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background-color: #f39c12;
+            color: white;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        /* Card with Rating */
+        .card-rating {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        
+        /* Card with Price */
+        .card-price {
+            font-size: 1.5em;
+            color: #2ecc71;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .card-price .old-price {
+            font-size: 0.8em;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+        
+        /* Card with Avatar */
+        .card-avatar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .avatar-info h4 {
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+        
+        .avatar-info p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        /* Card with Stats */
+        .card-stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        /* Card with Action Buttons */
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .action-btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .action-btn-primary:hover {
+            background-color: #2980b9;
+        }
+        
+        .action-btn-secondary {
+            background-color: #95a5a6;
+            color: white;
+        }
+        
+        .action-btn-secondary:hover {
+            background-color: #7f8c8d;
+        }
+        
+        /* Horizontal Card */
+        .card-horizontal {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-horizontal .card-image {
+            height: 180px;
+        }
+        
+        @media (min-width: 768px) {
+            .card-horizontal {
+                flex-direction: row;
+            }
+            
+            .card-horizontal .card-image {
+                width: 250px;
+                height: auto;
+            }
+            
+            .card-horizontal .card-content {
+                flex: 1;
+            }
+        }
+        
+        /* Card with Gradient */
+        .card-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .card-gradient .card-title {
+            color: white;
+        }
+        
+        .card-gradient .card-text {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* Card with Border */
+        .card-bordered {
+            border: 2px solid #3498db;
+            box-shadow: none;
+        }
+        
+        /* Card with Shadow Variations */
+        .card-shadow-sm {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .card-shadow-lg {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Card with Rounded Variations */
+        .card-rounded-sm {
+            border-radius: 5px;
+        }
+        
+        .card-rounded-lg {
+            border-radius: 20px;
+        }
+        
+        /* Card Full Height */
+        .card-full-height {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-full-height .card-content {
+            flex: 1;
+        }
+        
+        /* Flip Card */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 300px;
+            perspective: 1000px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .flip-card-front {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .flip-card-back {
+            background-color: #3498db;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Card Design Examples</h1>
+    
+    <!-- Basic Card -->
+    <div class="section">
+        <h2>1. Basic Card</h2>
+        <div class="card-grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Judul Card</h3>
+                    <p class="card-text">Ini adalah deskripsi singkat dari card. Card adalah komponen UI yang umum digunakan untuk menampilkan informasi.</p>
+                    <a href="#" class="card-button">Baca Selengkapnya</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Judul Card 2</h3>
+                    <p class="card-text">Card lain dengan konten berbeda. Hover untuk melihat efek.</p>
+                    <a href="#" class="card-button">Baca Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card with Badge -->
+    <div class="section">
+        <h2>2. Card with Badge</h2>
+        <div class="card-grid">
+            <div class="card card-badge">
+                <span class="badge">POPULAR</span>
+                <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Card dengan Badge</h3>
+                    <p class="card-text">Badge menunjukkan status khusus dari card.</p>
+                </div>
+            </div>
+            <div class="card card-badge">
+                <span class="badge" style="background-color: #2ecc71;">NEW</span>
+                <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Card Baru</h3>
+                    <p class="card-text">Badge dengan warna berbeda.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card with Overlay -->
+    <div class="section">
+        <h2>3. Card with Overlay</h2>
+        <div class="card-grid">
+            <div class="card card-overlay">
+                <img src="https://via.placeholder.com/400x300" alt="Card Image" class="card-image">
+                <div class="overlay">
+                    <h3 class="card-title" style="color: white;">Judul di Overlay</h3>
+                    <p style="color: rgba(255,255,255,0.9);">Teks overlay di atas gambar</p>
+                </div>
+            </div>
+            <div class="card card-overlay">
+                <img src="https://via.placeholder.com/400x300" alt="Card Image" class="card-image">
+                <div class="overlay">
+                    <h3 class="card-title" style="color: white;">Overlay Lain</h3>
+                    <p style="color: rgba(255,255,255,0.9);">Gradient overlay untuk teks yang lebih mudah dibaca</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card with Icon -->
+    <div class="section">
+        <h2>4. Card with Icon</h2>
+        <div class="card-grid">
+            <div class="card card-icon">
+                <div class="icon-circle">🚀</div>
+                <h3 class="card-title">Fitur Cepat</h3>
+                <p class="card-text">Card dengan icon besar di tengah untuk menampilkan fitur atau layanan.</p>
+            </div>
+            <div class="card card-icon">
+                <div class="icon-circle" style="background-color: #2ecc71;">📊</div>
+                <h3 class="card-title">Analisis</h3>
+                <p class="card-text">Icon dengan warna berbeda untuk variasi visual.</p>
+            </div>
+            <div class="card card-icon">
+                <div class="icon-circle" style="background-color: #e74c3c;">🔒</div>
+                <h3 class="card-title">Keamanan</h3>
+                <p class="card-text">Card dengan icon untuk menampilkan keunggulan produk.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card with Tags -->
+    <div class="section">
+        <h2>5. Card with Tags</h2>
+        <div class="card-grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-image">
+                <div class="card-content">
+                    <div class="card-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag" style="background-color: #3498db;">CSS</span>
+                        <span class="tag" style="background-color: #2ecc71;">JavaScript</span>
+                    </div>
+                    <h3 class="card-title">Card dengan Tags</h3>
+                    <p class="card-text">Tags untuk kategori atau label konten.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card with Rating -->
+    <div class="section">
+        <h2>6. Card with Rating</h2>
+        <div class="card-grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-image">
+                <div class="card-content">
+                    <div class="card-rating">★★★★★ (4.5)</div>
+                    <h3 class="card-title">Produk Terbaik</h3>
+                    <p class="card-text">Card dengan rating bintang untuk review produk.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-image">
+                <div class="card-content">
+                    <div class="card-rating">★★★★☆ (4.0)</div>
+                    <h3 class="card-title">Produk Bagus</h3>
+                    <p class="card-text">Rating yang berbeda untuk variasi.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card with Price -->
+    <div class="section">
+        <h2>7. Card with Price</h2>
+        <div class="card-grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Paket Premium</h3>
+                    <div class="card-price">Rp 500.000 <span class="old-price">Rp 750.000</span></div>
+                    <p class="card-text">Card dengan harga untuk produk e-commerce.</p>
+                    <a href="#" class="card-button">Beli Sekarang</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Paket Basic</h3>
+                    <div class="card-price">Rp 200.000</div>
+                    <p class="card-text">Paket tanpa diskon.</p>
+                    <a href="#" class="card-button">Beli Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card with Avatar -->
+    <div class="section">
+        <h2>8. Card with Avatar</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-avatar">
+                        <img src="https://via.placeholder.com/100" alt="Avatar" class="avatar">
+                        <div class="avatar-info">
+                            <h4>Dwi Angga</h4>
+                            <p>Developer</p>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Testimoni</h3>
+                    <p class="card-text">"Layanan yang sangat baik dan responsif. Sangat merekomendasikan produk ini!"</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-avatar">
+                        <img src="https://via.placeholder.com/100" alt="Avatar" class="avatar">
+                        <div class="avatar-info">
+                            <h4>Budi Santoso</h4>
+                            <p>Designer</p>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Testimoni 2</h3>
+                    <p class="card-text">"Desain yang modern dan mudah digunakan. Sangat puas dengan hasilnya."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card with Stats -->
+    <div class="section">
+        <h2>9. Card with Stats</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">Statistik Pengguna</h3>
+                    <p class="card-text">Data pengguna bulan ini</p>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-number">1.2K</div>
+                        <div class="stat-label">Pengguna</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Aktif</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">450</div>
+                        <div class="stat-label">Baru</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card with Action Buttons -->
+    <div class="section">
+        <h2>10. Card with Action Buttons</h2>
+        <div class="card-grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Card dengan Actions</h3>
+                    <p class="card-text">Card dengan tombol aksi di bagian bawah.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="action-btn action-btn-secondary">Batal</button>
+                    <button class="action-btn action-btn-primary">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Horizontal Card -->
+    <div class="section">
+        <h2>11. Horizontal Card</h2>
+        <div class="card card-horizontal" style="max-width: 600px; margin: 20px auto;">
+            <img src="https://via.placeholder.com/400x300" alt="Card Image" class="card-image">
+            <div class="card-content">
+                <h3 class="card-title">Horizontal Card</h3>
+                <p class="card-text">Card dengan layout horizontal. Pada mobile akan menjadi vertikal secara otomatis.</p>
+                <a href="#" class="card-button">Selengkapnya</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card with Gradient -->
+    <div class="section">
+        <h2>12. Card with Gradient</h2>
+        <div class="card-grid">
+            <div class="card card-gradient">
+                <div class="card-content">
+                    <h3 class="card-title">Gradient Card</h3>
+                    <p class="card-text">Card dengan background gradient untuk tampilan yang lebih menarik.</p>
+                    <a href="#" class="card-button" style="background-color: white; color: #667eea;">Lihat Detail</a>
+                </div>
+            </div>
+            <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+                <div class="card-content">
+                    <h3 class="card-title" style="color: white;">Gradient Pink</h3>
+                    <p class="card-text" style="color: rgba(255,255,255,0.9);">Gradient dengan warna berbeda.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card Shadow Variations -->
+    <div class="section">
+        <h2>13. Card Shadow Variations</h2>
+        <div class="card-grid">
+            <div class="card card-shadow-sm">
+                <div class="card-content">
+                    <h3 class="card-title">Small Shadow</h3>
+                    <p class="card-text">Shadow kecil</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">Normal Shadow</h3>
+                    <p class="card-text">Shadow normal</p>
+                </div>
+            </div>
+            <div class="card card-shadow-lg">
+                <div class="card-content">
+                    <h3 class="card-title">Large Shadow</h3>
+                    <p class="card-text">Shadow besar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card Border Variations -->
+    <div class="section">
+        <h2>14. Card Border & Rounded Variations</h2>
+        <div class="card-grid">
+            <div class="card card-bordered card-rounded-sm">
+                <div class="card-content">
+                    <h3 class="card-title">Bordered + Small Radius</h3>
+                    <p class="card-text">Card dengan border dan radius kecil</p>
+                </div>
+            </div>
+            <div class="card card-bordered">
+                <div class="card-content">
+                    <h3 class="card-title">Bordered + Normal</h3>
+                    <p class="card-text">Card dengan border dan radius normal</p>
+                </div>
+            </div>
+            <div class="card card-bordered card-rounded-lg">
+                <div class="card-content">
+                    <h3 class="card-title">Bordered + Large Radius</h3>
+                    <p class="card-text">Card dengan border dan radius besar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Flip Card -->
+    <div class="section">
+        <h2>15. Flip Card</h2>
+        <div class="card-grid">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Hover Saya</h3>
+                        <p>Untuk melihat balik card</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Sisi Belakang</h3>
+                        <p>Ini adalah konten di sisi belakang card</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Flip Card 2</h3>
+                        <p>Coba hover card ini</p>
+                    </div>
+                    <div class="flip-card-back" style="background-color: #e74c3c;">
+                        <h3>Back Side</h3>
+                        <p>Warna berbeda untuk variasi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

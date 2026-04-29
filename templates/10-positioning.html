@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 10 - CSS Positioning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .demo-box {
+            background-color: #f9f9f9;
+            border: 2px dashed #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            height: 200px;
+        }
+        
+        .box {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            width: 150px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .box-2 {
+            background-color: #e74c3c;
+        }
+        
+        .box-3 {
+            background-color: #2ecc71;
+        }
+        
+        /* Static Position (default) */
+        .static {
+            position: static;
+        }
+        
+        /* Relative Position */
+        .relative {
+            position: relative;
+            left: 30px;
+            top: 20px;
+        }
+        
+        /* Absolute Position */
+        .absolute-container {
+            position: relative;
+            height: 200px;
+        }
+        
+        .absolute {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .absolute-bottom-left {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+        
+        /* Fixed Position */
+        .fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #e74c3c;
+            padding: 15px 25px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        
+        /* Sticky Position */
+        .sticky {
+            position: sticky;
+            top: 10px;
+            background-color: #2ecc71;
+            margin-bottom: 10px;
+        }
+        
+        /* Z-Index */
+        .z-index-demo {
+            position: relative;
+            height: 150px;
+        }
+        
+        .z-1 {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background-color: #3498db;
+            z-index: 1;
+        }
+        
+        .z-2 {
+            position: absolute;
+            left: 40px;
+            top: 40px;
+            background-color: #e74c3c;
+            z-index: 2;
+        }
+        
+        .z-3 {
+            position: absolute;
+            left: 60px;
+            top: 60px;
+            background-color: #2ecc71;
+            z-index: 3;
+        }
+        
+        /* Overflow */
+        .overflow-container {
+            width: 300px;
+            height: 100px;
+            border: 2px solid #333;
+            margin: 10px 0;
+        }
+        
+        .overflow-visible {
+            overflow: visible;
+        }
+        
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        
+        .overflow-scroll {
+            overflow: scroll;
+        }
+        
+        .overflow-auto {
+            overflow: auto;
+        }
+        
+        .long-content {
+            width: 400px;
+            height: 200px;
+            background-color: #f39c12;
+            padding: 10px;
+        }
+        
+        /* Float */
+        .float-left {
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .float-right {
+            float: right;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        /* Display */
+        .inline {
+            display: inline;
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+        }
+        
+        .inline-block {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+        }
+        
+        .block {
+            display: block;
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        
+        .none {
+            display: none;
+        }
+        
+        /* Visibility */
+        .visible {
+            visibility: visible;
+        }
+        
+        .hidden {
+            visibility: hidden;
+        }
+        
+        /* Cursor */
+        .cursor-pointer {
+            cursor: pointer;
+        }
+        
+        .cursor-crosshair {
+            cursor: crosshair;
+        }
+        
+        .cursor-move {
+            cursor: move;
+        }
+        
+        .cursor-not-allowed {
+            cursor: not-allowed;
+        }
+        
+        /* Opacity */
+        .opacity-1 {
+            opacity: 1;
+        }
+        
+        .opacity-5 {
+            opacity: 0.5;
+        }
+        
+        .opacity-0 {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Positioning Examples</h1>
+    
+    <!-- Static Position -->
+    <div class="section">
+        <h2>1. Static Position (default)</h2>
+        <div class="demo-box">
+            <div class="box">Static Box</div>
+            <div class="box box-2">Static Box 2</div>
+        </div>
+        <p>Static adalah posisi default elemen. Elemen mengalir sesuai urutan dokumen.</p>
+    </div>
+    
+    <!-- Relative Position -->
+    <div class="section">
+        <h2>2. Relative Position</h2>
+        <div class="demo-box">
+            <div class="box">Normal Box</div>
+            <div class="box box-2 relative">Relative (left: 30px, top: 20px)</div>
+            <div class="box box-3">Normal Box 3</div>
+        </div>
+        <p>Relative memindahkan elemen relatif terhadap posisi normalnya.</p>
+    </div>
+    
+    <!-- Absolute Position -->
+    <div class="section">
+        <h2>3. Absolute Position</h2>
+        <div class="demo-box absolute-container">
+            <div class="box absolute">Absolute (top: 20px, right: 20px)</div>
+            <div class="box box-2 absolute-bottom-left">Absolute (bottom: 20px, left: 20px)</div>
+        </div>
+        <p>Absolute memposisikan elemen relatif terhadap elemen parent terdekat yang berposition relative.</p>
+    </div>
+    
+    <!-- Fixed Position -->
+    <div class="section">
+        <h2>4. Fixed Position</h2>
+        <p>Lihat tombol "Back to Top" di pojok kanan bawah. Tombol ini menggunakan position: fixed.</p>
+        <p>Fixed memposisikan elemen relatif terhadap viewport browser dan tetap di posisi saat scroll.</p>
+        <a href="#" class="fixed">↑ Back to Top</a>
+    </div>
+    
+    <!-- Sticky Position -->
+    <div class="section">
+        <h2>5. Sticky Position</h2>
+        <div class="demo-box" style="height: auto; min-height: 400px;">
+            <div class="box sticky">Sticky Box (scroll ke bawah untuk melihat efek)</div>
+            <p style="margin-top: 20px;">Scroll ke bawah untuk melihat efek sticky. Elemen akan menempel di atas saat mencapai posisi tertentu.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+    
+    <!-- Z-Index -->
+    <div class="section">
+        <h2>6. Z-Index</h2>
+        <div class="demo-box z-index-demo">
+            <div class="box z-1">Z-Index: 1</div>
+            <div class="box box-2 z-2">Z-Index: 2</div>
+            <div class="box box-3 z-3">Z-Index: 3</div>
+        </div>
+        <p>Z-Index menentukan urutan tumpukan elemen. Semakin tinggi nilai, semakin di atas elemen tersebut.</p>
+    </div>
+    
+    <!-- Overflow -->
+    <div class="section">
+        <h2>7. Overflow</h2>
+        <h3>overflow: visible (default)</h3>
+        <div class="overflow-container overflow-visible">
+            <div class="long-content">Konten yang melebihi container akan terlihat di luar.</div>
+        </div>
+        
+        <h3>overflow: hidden</h3>
+        <div class="overflow-container overflow-hidden">
+            <div class="long-content">Konten yang melebihi container akan disembunyikan.</div>
+        </div>
+        
+        <h3>overflow: scroll</h3>
+        <div class="overflow-container overflow-scroll">
+            <div class="long-content">Konten yang melebihi container akan menampilkan scrollbar.</div>
+        </div>
+        
+        <h3>overflow: auto</h3>
+        <div class="overflow-container overflow-auto">
+            <div class="long-content">Scrollbar hanya muncul jika diperlukan.</div>
+        </div>
+    </div>
+    
+    <!-- Float -->
+    <div class="section">
+        <h2>8. Float</h2>
+        <div class="clearfix">
+            <div class="box float-left">Float Left</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elemen ini mengalir di sebelah kanan elemen yang di-float. Float digunakan untuk layout sebelum flexbox dan grid menjadi populer.</p>
+            <div class="box box-2 float-right">Float Right</div>
+            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        </div>
+    </div>
+    
+    <!-- Display -->
+    <div class="section">
+        <h2>9. Display</h2>
+        <h3>display: inline</h3>
+        <div>
+            <span class="box inline">Inline 1</span>
+            <span class="box inline">Inline 2</span>
+            <span class="box inline">Inline 3</span>
+        </div>
+        
+        <h3>display: inline-block</h3>
+        <div>
+            <span class="box inline-block">Inline-Block 1</span>
+            <span class="box inline-block">Inline-Block 2</span>
+            <span class="box inline-block">Inline-Block 3</span>
+        </div>
+        
+        <h3>display: block</h3>
+        <div>
+            <span class="box block">Block 1</span>
+            <span class="box block">Block 2</span>
+            <span class="box block">Block 3</span>
+        </div>
+        
+        <h3>display: none (elemen ini tidak terlihat)</h3>
+        <div class="box none">Elemen ini tidak akan terlihat</div>
+    </div>
+    
+    <!-- Visibility -->
+    <div class="section">
+        <h2>10. Visibility</h2>
+        <div class="box visible">visibility: visible (terlihat)</div>
+        <div class="box box-2 hidden">visibility: hidden (tidak terlihat tapi tetap mengambil ruang)</div>
+        <div class="box box-3">Elemen ketiga</div>
+    </div>
+    
+    <!-- Cursor -->
+    <div class="section">
+        <h2>11. Cursor</h2>
+        <div class="box cursor-pointer">cursor: pointer (hover di sini)</div>
+        <div class="box box-2 cursor-crosshair">cursor: crosshair (hover di sini)</div>
+        <div class="box box-3 cursor-move">cursor: move (hover di sini)</div>
+        <div class="box cursor-not-allowed">cursor: not-allowed (hover di sini)</div>
+    </div>
+    
+    <!-- Opacity -->
+    <div class="section">
+        <h2>12. Opacity</h2>
+        <div class="box opacity-1">opacity: 1 (100% - sepenuhnya terlihat)</div>
+        <div class="box box-2 opacity-5">opacity: 0.5 (50% - setengah transparan)</div>
+        <div class="box box-3 opacity-0">opacity: 0 (0% - tidak terlihat)</div>
+    </div>
+</body>
+</html>
