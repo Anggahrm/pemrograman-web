@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak - BacaKita</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html">BacaKita</a>
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="index.html">Home</a>
+        <a href="katalog.html">Katalog</a>
+        <a class="active" href="kontak.html">Kontak</a>
+      </nav>
+      <a class="nav-search" href="katalog.html" aria-label="Cari buku di katalog">
+        <span class="material-symbols-outlined">search</span>
+        <span>Cari buku...</span>
+      </a>
+      <a class="login-btn" href="#contactForm">Kirim Pesan</a>
+    </div>
+  </header>
+
+  <main class="contact-layout container">
+    <div class="contact-info-column">
+      <section class="surface-card intro-contact">
+        <p class="label">Kontak Kami</p>
+        <h1>Hubungi Tim BacaKita</h1>
+        <p>BacaKita berkomitmen menyediakan akses informasi yang jelas dan inklusif. Kirim pertanyaan, kritik, atau saran agar layanan perpustakaan digital ini dapat terus berkembang.</p>
+      </section>
+
+      <section class="surface-card contact-details">
+        <h2>Informasi Kontak</h2>
+        <div class="detail-item">
+          <span class="material-symbols-outlined">location_on</span>
+          <div>
+            <small>Alamat</small>
+            <p>Gedung BacaKita Lt. 3<br />Jl. Cendekiawan No. 45, Yogyakarta</p>
+          </div>
+        </div>
+        <div class="detail-item">
+          <span class="material-symbols-outlined">mail</span>
+          <div>
+            <small>Email</small>
+            <p>layanan@bacakita.id</p>
+          </div>
+        </div>
+        <div class="detail-item">
+          <span class="material-symbols-outlined">call</span>
+          <div>
+            <small>Telepon</small>
+            <p>+62 274 555 0192</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="surface-card service-hours">
+        <h2>Jam Layanan</h2>
+        <table>
+          <tbody>
+            <tr><td>Senin - Jumat</td><td>08:00 - 20:00 WIB</td></tr>
+            <tr><td>Sabtu</td><td>09:00 - 15:00 WIB</td></tr>
+            <tr><td>Minggu & Hari Libur</td><td>Tutup</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <section class="surface-card form-panel">
+      <h2>Kirim Kritik & Saran</h2>
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" />
+            <small class="error-message"></small>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Aktif</label>
+            <input type="email" id="email" name="email" placeholder="alamat@email.com" />
+            <small class="error-message"></small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="category">Kategori Pesan</label>
+          <select id="category" name="category">
+            <option value="">Pilih kategori...</option>
+            <option value="layanan">Layanan Keanggotaan</option>
+            <option value="koleksi">Permintaan atau Kritik Koleksi</option>
+            <option value="teknis">Kendala Teknis Website</option>
+            <option value="lainnya">Lainnya</option>
+          </select>
+          <small class="error-message"></small>
+        </div>
+        <div class="form-group">
+          <label for="message">Isi Pesan</label>
+          <textarea id="message" name="message" rows="6" placeholder="Tuliskan pesan, kritik, atau saran Anda di sini..."></textarea>
+          <small class="error-message"></small>
+        </div>
+        <button class="btn primary send-btn" type="submit"><span class="material-symbols-outlined">send</span> Kirim Pesan</button>
+        <p id="formSuccess" class="success-message" hidden>Pesan berhasil divalidasi. Terima kasih atas masukannya.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <div>
+        <strong>BacaKita</strong>
+        <p>© 2026 BacaKita Digital Library. Traditional Scholarship, Modern Efficiency.</p>
+      </div>
+      <nav aria-label="Navigasi footer">
+        <a href="index.html">Home</a>
+        <a href="katalog.html">Katalog</a>
+        <a href="kontak.html">Panduan</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+

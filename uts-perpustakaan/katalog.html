@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Koleksi Digital - BacaKita</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html">BacaKita</a>
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="index.html">Home</a>
+        <a class="active" href="katalog.html">Katalog</a>
+        <a href="kontak.html">Kontak</a>
+      </nav>
+      <label class="nav-search catalog-search" for="bookSearch">
+        <span class="material-symbols-outlined">search</span>
+        <input id="bookSearch" type="search" placeholder="Cari judul, penulis, atau kategori..." autocomplete="off" />
+      </label>
+      <a class="login-btn" href="kontak.html">Bantuan</a>
+    </div>
+  </header>
+
+  <main class="catalog-layout container">
+    <aside class="filter-panel surface-card">
+      <h2>Filter Kategori</h2>
+      <div class="filter-list">
+        <label><input class="category-filter" type="checkbox" value="all" checked /> <span>Semua Kategori</span></label>
+        <label><input class="category-filter" type="checkbox" value="Informatika" /> <span>Informatika</span></label>
+        <label><input class="category-filter" type="checkbox" value="Bisnis" /> <span>Bisnis</span></label>
+        <label><input class="category-filter" type="checkbox" value="Literasi" /> <span>Literasi</span></label>
+        <label><input class="category-filter" type="checkbox" value="Sains" /> <span>Sains</span></label>
+      </div>
+    </aside>
+
+    <section class="catalog-main">
+      <div class="catalog-header">
+        <div>
+          <p class="label">Katalog Buku</p>
+          <h1>Katalog Koleksi Digital</h1>
+          <p id="resultInfo">Menampilkan semua koleksi buku.</p>
+        </div>
+        <label class="sort-box">
+          <span>Urutkan:</span>
+          <select id="sortBooks">
+            <option value="default">Terbaru</option>
+            <option value="az">A-Z</option>
+            <option value="za">Z-A</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="book-catalog-grid" id="bookList">
+        <article class="catalog-book surface-card" data-title="Introduction to Algorithms" data-author="Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein" data-category="Informatika" data-year="2022">
+          <div class="cover cover-algo"><img src="https://covers.openlibrary.org/b/isbn/9780262046305-L.jpg" alt="Cover buku Introduction to Algorithms" /><span>Introduction to Algorithms</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Informatika</p>
+            <h3>Introduction to Algorithms</h3>
+            <p>Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein</p>
+            <div class="book-footer"><span>2022</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="The Lean Startup" data-author="Eric Ries" data-category="Bisnis" data-year="2011">
+          <div class="cover cover-business"><img src="https://covers.openlibrary.org/b/isbn/9780307887894-L.jpg" alt="Cover buku The Lean Startup" /><span>The Lean Startup</span><em class="status borrowed">Dipinjam</em></div>
+          <div class="book-content">
+            <p class="book-category">Bisnis</p>
+            <h3>The Lean Startup</h3>
+            <p>Eric Ries</p>
+            <div class="book-footer"><span>2011</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="Bumi Manusia" data-author="Pramoedya Ananta Toer" data-category="Literasi" data-year="1980">
+          <div class="cover cover-literasi"><img src="https://covers.openlibrary.org/b/isbn/9780140256352-L.jpg" alt="Cover buku Bumi Manusia" /><span>Bumi Manusia</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Literasi</p>
+            <h3>Bumi Manusia</h3>
+            <p>Pramoedya Ananta Toer</p>
+            <div class="book-footer"><span>1980</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="A Brief History of Time" data-author="Stephen Hawking" data-category="Sains" data-year="1988">
+          <div class="cover cover-science"><img src="https://covers.openlibrary.org/b/isbn/9780553380163-L.jpg" alt="Cover buku A Brief History of Time" /><span>A Brief History of Time</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Sains</p>
+            <h3>A Brief History of Time</h3>
+            <p>Stephen Hawking</p>
+            <div class="book-footer"><span>1988</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="Clean Code" data-author="Robert C. Martin" data-category="Informatika" data-year="2008">
+          <div class="cover cover-fullstack"><img src="https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg" alt="Cover buku Clean Code" /><span>Clean Code</span><em class="status borrowed">Dipinjam</em></div>
+          <div class="book-content">
+            <p class="book-category">Informatika</p>
+            <h3>Clean Code</h3>
+            <p>Robert C. Martin</p>
+            <div class="book-footer"><span>2008</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="Good to Great" data-author="Jim Collins" data-category="Bisnis" data-year="2001">
+          <div class="cover cover-economy"><img src="https://covers.openlibrary.org/b/isbn/9780066620992-L.jpg" alt="Cover buku Good to Great" /><span>Good to Great</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Bisnis</p>
+            <h3>Good to Great</h3>
+            <p>Jim Collins</p>
+            <div class="book-footer"><span>2001</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="Design Patterns" data-author="Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides" data-category="Informatika" data-year="1994">
+          <div class="cover cover-algo"><img src="https://covers.openlibrary.org/b/isbn/9780201633610-L.jpg" alt="Cover buku Design Patterns" /><span>Design Patterns</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Informatika</p>
+            <h3>Design Patterns</h3>
+            <p>Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides</p>
+            <div class="book-footer"><span>1994</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="The Pragmatic Programmer" data-author="Andrew Hunt, David Thomas" data-category="Informatika" data-year="1999">
+          <div class="cover cover-fullstack"><img src="https://covers.openlibrary.org/b/isbn/9780201616224-L.jpg" alt="Cover buku The Pragmatic Programmer" /><span>The Pragmatic Programmer</span><em class="status borrowed">Dipinjam</em></div>
+          <div class="book-content">
+            <p class="book-category">Informatika</p>
+            <h3>The Pragmatic Programmer</h3>
+            <p>Andrew Hunt, David Thomas</p>
+            <div class="book-footer"><span>1999</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="Code Complete" data-author="Steve McConnell" data-category="Informatika" data-year="2004">
+          <div class="cover cover-algo"><img src="https://covers.openlibrary.org/b/isbn/9780735619678-L.jpg" alt="Cover buku Code Complete" /><span>Code Complete</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Informatika</p>
+            <h3>Code Complete</h3>
+            <p>Steve McConnell</p>
+            <div class="book-footer"><span>2004</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="Zero to One" data-author="Peter Thiel, Blake Masters" data-category="Bisnis" data-year="2014">
+          <div class="cover cover-business"><img src="https://covers.openlibrary.org/b/isbn/9780804139298-L.jpg" alt="Cover buku Zero to One" /><span>Zero to One</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Bisnis</p>
+            <h3>Zero to One</h3>
+            <p>Peter Thiel, Blake Masters</p>
+            <div class="book-footer"><span>2014</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="Blue Ocean Strategy" data-author="W. Chan Kim, Renée Mauborgne" data-category="Bisnis" data-year="2005">
+          <div class="cover cover-economy"><img src="https://covers.openlibrary.org/b/isbn/9781591396192-L.jpg" alt="Cover buku Blue Ocean Strategy" /><span>Blue Ocean Strategy</span><em class="status borrowed">Dipinjam</em></div>
+          <div class="book-content">
+            <p class="book-category">Bisnis</p>
+            <h3>Blue Ocean Strategy</h3>
+            <p>W. Chan Kim, Renée Mauborgne</p>
+            <div class="book-footer"><span>2005</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="The Innovator's Dilemma" data-author="Clayton M. Christensen" data-category="Bisnis" data-year="1997">
+          <div class="cover cover-business"><img src="https://covers.openlibrary.org/b/isbn/9780062060242-L.jpg" alt="Cover buku The Innovator's Dilemma" /><span>The Innovator's Dilemma</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Bisnis</p>
+            <h3>The Innovator's Dilemma</h3>
+            <p>Clayton M. Christensen</p>
+            <div class="book-footer"><span>1997</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="To Kill a Mockingbird" data-author="Harper Lee" data-category="Literasi" data-year="1960">
+          <div class="cover cover-literasi"><img src="https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg" alt="Cover buku To Kill a Mockingbird" /><span>To Kill a Mockingbird</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Literasi</p>
+            <h3>To Kill a Mockingbird</h3>
+            <p>Harper Lee</p>
+            <div class="book-footer"><span>1960</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="1984" data-author="George Orwell" data-category="Literasi" data-year="1949">
+          <div class="cover cover-literasi"><img src="https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg" alt="Cover buku 1984" /><span>1984</span><em class="status borrowed">Dipinjam</em></div>
+          <div class="book-content">
+            <p class="book-category">Literasi</p>
+            <h3>1984</h3>
+            <p>George Orwell</p>
+            <div class="book-footer"><span>1949</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="The Alchemist" data-author="Paulo Coelho" data-category="Literasi" data-year="1988">
+          <div class="cover cover-literasi"><img src="https://covers.openlibrary.org/b/isbn/9780061122415-L.jpg" alt="Cover buku The Alchemist" /><span>The Alchemist</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Literasi</p>
+            <h3>The Alchemist</h3>
+            <p>Paulo Coelho</p>
+            <div class="book-footer"><span>1988</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="Cosmos" data-author="Carl Sagan" data-category="Sains" data-year="1980">
+          <div class="cover cover-science"><img src="https://covers.openlibrary.org/b/isbn/9780345539434-L.jpg" alt="Cover buku Cosmos" /><span>Cosmos</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Sains</p>
+            <h3>Cosmos</h3>
+            <p>Carl Sagan</p>
+            <div class="book-footer"><span>1980</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="The Selfish Gene" data-author="Richard Dawkins" data-category="Sains" data-year="1976">
+          <div class="cover cover-science"><img src="https://covers.openlibrary.org/b/isbn/9780198788607-L.jpg" alt="Cover buku The Selfish Gene" /><span>The Selfish Gene</span><em class="status borrowed">Dipinjam</em></div>
+          <div class="book-content">
+            <p class="book-category">Sains</p>
+            <h3>The Selfish Gene</h3>
+            <p>Richard Dawkins</p>
+            <div class="book-footer"><span>1976</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+        <article class="catalog-book surface-card" data-title="On the Origin of Species" data-author="Charles Darwin" data-category="Sains" data-year="1859">
+          <div class="cover cover-science"><img src="https://covers.openlibrary.org/b/isbn/9780140432053-L.jpg" alt="Cover buku On the Origin of Species" /><span>On the Origin of Species</span><em class="status available">Tersedia</em></div>
+          <div class="book-content">
+            <p class="book-category">Sains</p>
+            <h3>On the Origin of Species</h3>
+            <p>Charles Darwin</p>
+            <div class="book-footer"><span>1859</span><button type="button"><span class="material-symbols-outlined">bookmark_add</span></button></div>
+          </div>
+        </article>
+      </div>
+
+      <div id="emptyState" class="empty-state surface-card" hidden>
+        <h2>Buku tidak ditemukan</h2>
+        <p>Coba gunakan kata kunci atau kategori lain.</p>
+      </div>
+
+      <div class="pagination" id="catalogPagination" aria-label="Navigasi halaman katalog">
+        <button type="button" data-pagination="prev" aria-label="Halaman sebelumnya"><span class="material-symbols-outlined">chevron_left</span></button>
+        <button class="current" type="button" data-page="1">1</button>
+        <button type="button" data-page="2">2</button>
+        <button type="button" data-page="3">3</button>
+        <button type="button" data-pagination="next" aria-label="Halaman berikutnya"><span class="material-symbols-outlined">chevron_right</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <div>
+        <strong>BacaKita</strong>
+        <p>© 2026 BacaKita Digital Library. Traditional Scholarship, Modern Efficiency.</p>
+      </div>
+      <nav aria-label="Navigasi footer">
+        <a href="index.html">Home</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="katalog.html">Panduan</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+
